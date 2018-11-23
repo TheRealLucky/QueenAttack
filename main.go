@@ -3,7 +3,7 @@ package main
 import (
 	"errors"
 	_ "os"
-	_ "fmt"
+	"fmt"
 )
 
 type Queen struct {
@@ -14,9 +14,12 @@ type Queen struct {
 
 var field [7][7]int
 
-func checkAttack(q1, q2 Queen) bool {
-	//TODO
-	return false
+func checkAttack(q1, q2 *Queen) bool {
+	if(q1.x_pos == q2.x_pos) {
+		return true
+	} else {
+		return false
+	}
 }
 
 func getQueen(x_pos, y_pos int, color string) (*Queen, error) {
@@ -28,4 +31,12 @@ func getQueen(x_pos, y_pos int, color string) (*Queen, error) {
 }
 
 func main() {
+	q1, err := getQueen(3, 4, "black")
+	q2, err := getQueen(3, 7, "white")
+
+	if err != nil{
+		panic(err)
+	}
+
+	fmt.Println(checkAttack(q1, q2))
 }
