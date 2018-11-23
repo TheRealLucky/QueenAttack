@@ -18,5 +18,9 @@ func checkAttack(q1, q2 Queen) bool {
 	return false
 }
 
+func getQueen(x_pos, y_pos int, color string) Queen {
+	return Queen{x_pos, y_pos, color}
+}
+
 func main() {
 }
