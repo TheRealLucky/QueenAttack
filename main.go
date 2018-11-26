@@ -55,6 +55,11 @@ func getQueen(x_pos, y_pos int, color string) (*Queen, error) {
 	}
 }
 
+func interpret(args []string) (*Queen, *Queen, error) {
+	//TODO -> Interpret Commandline Parameter and return the interpretation
+	return nil, nil, nil
+}
+
 func main() {
 	q1, err := getQueen(1, 2, "black")
 	q2, err := getQueen(0, 1, "white")
