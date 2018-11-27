@@ -58,7 +58,6 @@ func getQueen(x_pos, y_pos int16, color string) (*Queen, error) {
 }
 
 func interpret(args []string) (*Queen, *Queen, error) {
-	//TODO -> Interpret Commandline Parameter and return the interpretation
 	q1_val := strings.Split(args[1], ",")
 	q2_val := strings.Split(args[2], ",")
 
