@@ -8,14 +8,19 @@ import (
 	"strconv"
 )
 
+// Represents the Queen 
 type Queen struct {
 	x_pos int16
 	y_pos int16
 	color string
 }
 
+// Represents the 8x8 chess board
 var field [7][7]int
 
+// Takes two queens as parameters and checks if the queens are able
+// to attack each other. This is only the case if the are in the same
+// row, column or diagonal to each other.
 func checkAttack(q1, q2 *Queen) bool {
 	if(q1.x_pos == q2.x_pos || q1.y_pos == q2.y_pos) {
 		return true
@@ -49,6 +54,8 @@ func checkAttack(q1, q2 *Queen) bool {
 	return false
 }
 
+// Takes the x and y position, as well as the color of the queen as
+// parameters and returns a Queen
 func getQueen(x_pos, y_pos int16, color string) (*Queen, error) {
 	if (x_pos >= 0 && x_pos < 7) && (y_pos >= 0 && y_pos < 7) {
 		return &Queen{x_pos, y_pos, color}, nil
@@ -57,6 +64,9 @@ func getQueen(x_pos, y_pos int16, color string) (*Queen, error) {
 	}
 }
 
+// Interprets the commandline arguments. 
+// The help function dispalays the format, which the arguments
+// should look like.
 func interpret(args []string) (*Queen, *Queen, error) {
 	q1_val := strings.Split(args[1], ",")
 	q2_val := strings.Split(args[2], ",")
