@@ -65,7 +65,7 @@ func getQueen(x_pos, y_pos int16, color string) (*Queen, error) {
 }
 
 // Interprets the commandline arguments. 
-// The help function dispalays the format, which the arguments
+// The help function dispalays the format, how the arguments
 // should look like.
 func interpret(args []string) (*Queen, *Queen, error) {
 	q1_val := strings.Split(args[1], ",")
@@ -84,6 +84,12 @@ func interpret(args []string) (*Queen, *Queen, error) {
 	q2, err := getQueen(int16(q2_x), int16(q2_y), q2_val[2])
 
 	return q1, q2, err
+}
+
+// Displays a help message how the commandline arguments
+// must be formatted.
+func help() {
+
 }
 
 func main() {
