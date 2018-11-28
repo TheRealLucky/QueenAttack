@@ -8,6 +8,28 @@ import (
 	"strconv"
 )
 
+// Purpose of this program:
+//
+// Two queens(w = white, b=black) are placed on this board.
+// The two queens can attack each other if they are in the
+// same column, row, or diagonal to each other.
+
+/* For example with parameters: 1,2,b 3,4,w
+0 1 2 3 4 5 6 7 x|y
+
+x x x x x x x x   0
+x x x x x x x x   1
+x b x x x x x x   2
+x x x x x x x x   3
+x x x w x x x x   4
+x x x x x x x x   5
+x x x x x x x x   6
+x x x x x x x x   7
+
+In this example b and w can attack each other because they are
+placed diagonal.
+*/
+
 // Represents the Queen 
 type Queen struct {
 	x_pos int16
@@ -89,7 +111,11 @@ func interpret(args []string) (*Queen, *Queen, error) {
 // Displays a help message how the commandline arguments
 // must be formatted.
 func help() {
-
+	fmt.Println("Usage:")
+	fmt.Println("queenAttack <x_pos>,<y_pos>,<color> <x_pos>,<y_pos>,<color>")
+	fmt.Println()
+	fmt.Println("Where the first 3 arguments stand for the position and color of")
+	fmt.Println("the first queen and the second 3 for the second queen.")
 }
 
 func main() {
